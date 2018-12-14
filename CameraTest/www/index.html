@@ -37,13 +37,27 @@
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
+            <h1>Elastos Trinity Camera</h1>
+
             <div id="deviceready" class="blink">
+                <img id="icon" src="img/logo2.png" class="icon"/>
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+            <div class="divUpload">
+                <div id="showImg" class="imgShowDiv" align="center">
+                    <img id="imgShow" src="img/logo3.png" class="picture"/>
+                </div>
+                <!-- <input type="button" value="选择图片" id="btnAddImg"/> -->
+                <!-- <input type="button" value="上传图片" id="btnUploadImg"/> -->
+            </div>
+            <div id="divChoosePic" class="divChoosePic">
+                <input type="button" value="拍照" id="btnChooseFromCamera">
+                <input type="button" value="相册" id="btnChooseFromLocal" >
+                <input type="button" value="取消" id="btnCancelChoose" >
+            </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
     </body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>
