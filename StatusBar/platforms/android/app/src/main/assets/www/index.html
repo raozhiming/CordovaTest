@@ -37,13 +37,44 @@
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
+            <h1>Elastos Trinity StatusBar</h1>
+
             <div id="deviceready" class="blink">
+                <img id="icon" src="img/logo.png" class="icon"/>
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+            <div class="controlGroup">
+                <div>
+                    <input type="checkbox" id = "overlaysWebView">overlaysWebView</input>
+                </div>
+                <div>
+                    <button id = "styleDefault">styleDefault</button>
+                </div>
+                <div>
+                    <button id = "styleLightContent">styleLightContent</button>
+                </div>
+                <div>
+                    <button id = "styleBlackTranslucent">styleBlackTranslucent</button>
+                </div>
+                <div>
+                    <button id = "styleBlackOpaque">styleBlackOpaque</button>
+                </div>
+                <div>
+                    <button id = "backgroundColorByName">backgroundColorByName</button>
+                </div>
+                <div>
+                    <button id = "backgroundColorByHexString">backgroundColorByHexString</button>
+                </div>
+                <div>
+                    <button id = "hide">hide</button>
+                </div>
+                <div>
+                    <button id = "show">show</button>
+                </div>
+            </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
     </body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>

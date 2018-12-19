@@ -1,0 +1,64 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "org.elastos.samples"
+    }
+  }
+}

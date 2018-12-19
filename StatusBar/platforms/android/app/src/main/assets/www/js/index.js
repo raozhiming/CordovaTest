@@ -16,10 +16,57 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+function overlayWebview() {
+    var isOverlay = document.getElementById("overlaysWebView").checked;
+    StatusBar.overlaysWebView(isOverlay);
+}
+
+function styleDefault() {
+    StatusBar.styleDefault();
+}
+
+function lightContent() {
+    StatusBar.styleLightContent();
+}
+
+function blackBranslucent() {
+    StatusBar.styleBlackTranslucent();
+}
+
+function blackOpaque() {
+    StatusBar.styleBlackOpaque();
+}
+
+function backgroundColorByName() {
+    StatusBar.backgroundColorByName("red");
+}
+
+function backgroundColorByHexString() {
+    StatusBar.backgroundColorByHexString("#333");
+}
+
+function hide() {
+    StatusBar.hide();
+}
+
+function show() {
+    StatusBar.show();
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        document.getElementById("overlaysWebView").addEventListener("change", overlayWebview);
+        document.getElementById("styleDefault").addEventListener("click", styleDefault);
+        document.getElementById("styleLightContent").addEventListener("click", lightContent);
+        document.getElementById("styleBlackTranslucent").addEventListener("click", blackBranslucent);
+        document.getElementById("styleBlackOpaque").addEventListener("click", blackOpaque);
+        document.getElementById("backgroundColorByName").addEventListener("click", backgroundColorByName);
+        document.getElementById("backgroundColorByHexString").addEventListener("click", backgroundColorByHexString);
+        document.getElementById("hide").addEventListener("click", hide);
+        document.getElementById("show").addEventListener("click", show);
     },
 
     // deviceready Event Handler
@@ -28,6 +75,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        console.log('-----------------onDeviceReady-------------\n\n\n------------');
     },
 
     // Update DOM on a Received Event
@@ -38,8 +86,6 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
     }
 };
 

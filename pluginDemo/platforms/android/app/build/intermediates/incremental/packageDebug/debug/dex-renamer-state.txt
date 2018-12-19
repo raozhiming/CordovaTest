@@ -1,0 +1,4 @@
+#Wed Dec 19 13:14:36 CST 2018
+base.0=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/pluginDemo/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
