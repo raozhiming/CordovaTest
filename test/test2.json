@@ -1,0 +1,37 @@
+{
+  "id": "org.elastos.trinity.SplashScreen",
+  "version": "0.0.1",
+  "name": "SplashScreen",
+  "short_name": "SplashScreen",
+  "description": "SplashScreen Test",
+  "start_url": "index.html",
+  "icons": [
+    {
+        "src": "img/logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    },
+    {
+      "src": "img/logo.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "author": {
+      "name": "raozhiming",
+      "email": "raozhiming@elastos.org"
+  },
+  "default_locale": "en",
+  "plugins": [
+      "Device",
+      "SplashScreen",
+      // "File"
+  ],
+  "urls": [
+    "http://www.baidu.com/*",
+    "https://www.google.com"
+  ],
+  "background_color": "#4e8ef7",
+  "theme_display": "show",
+  "theme_color": "#4e8ef7"
+}
