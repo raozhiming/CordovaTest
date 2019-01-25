@@ -75,6 +75,7 @@ describe("appManager", function() {
             var success = function () {
                 console.log("start success:" + dapp_id);
                 isSuccess = true;
+                sleep(100); //wait for start
                 resolve();
             };
             var error = function (error) {
@@ -91,6 +92,7 @@ describe("appManager", function() {
             var success = function () {
                 console.log("close success:" + dapp_id);
                 isSuccess = true;
+                sleep(100); //wait for close
                 resolve();
             };
             var error = function (error) {
@@ -102,10 +104,58 @@ describe("appManager", function() {
         });
     }
 
-    function sleep(done, millsecond) {
-        setTimeout(function() {
-            done();
-        }, millsecond);
+    function launcher() {
+        return new Promise(function(resolve, reject) {
+            var success = function () {
+                console.log("launcher success:");
+                isSuccess = true;
+                resolve();
+            };
+            var error = function (error) {
+                console.log("launcher fail:");
+                isSuccess = false;
+                reject();
+            };
+            appManager.launcher(success, error);
+        });
+    }
+
+    function install(url) {
+        return new Promise(function(resolve, reject) {
+            var success = function () {
+                console.log("install success:" + url);
+                isSuccess = true;
+                resolve();
+            };
+            var error = function (error) {
+                console.log("install fail:" + url);
+                isSuccess = false;
+                reject();
+            };
+            appManager.install(url, success, error);
+        });
+    }
+
+    function unInstall(dapp_id, buildIn) {
+        return new Promise(function(resolve, reject) {
+            var success = function () {
+                console.log("unInstall success:" + dapp_id);
+                isSuccess = true;
+                resolve();
+            };
+            var error = function (error) {
+                console.log("unInstall fail:" + dapp_id);
+                if (buildIn) {
+                    isSuccess = true;
+                    resolve();
+                }
+                else {
+                    isSuccess = false;
+                    reject();
+                }
+            };
+            appManager.unInstall(dapp_id, success, error);
+        });
     }
 
     function sleep(delay) {
@@ -127,6 +177,14 @@ describe("appManager", function() {
         appInfos_origin = appInfos;
     });
 
+    afterAll(async function() {
+        await getRunningListPromise();
+        for (i=0;i<running_list.length;i++){
+            await closeById(running_list[i]);
+        }
+    });
+
+
     describe("check list for first launcher", function() {
         it("appList >= 4", async function() {
             expect(app_list.length).toBeGreaterThanOrEqual(4);
@@ -142,7 +200,7 @@ describe("appManager", function() {
 
         it("getAppInfos >= 4", async function() {
             var appCount = 0;
-            if (typeof appInfos == 'object') {
+            if (typeof appInfos_origin == 'object') {
                 for (const key in appInfos_origin) {
                     appCount++;
 //                    console.log("id:" + appInfos_origin[key].id + " name:" + appInfos_origin[key].name +
@@ -159,8 +217,6 @@ describe("appManager", function() {
         beforeEach(async function() {
             await startDappById("org.elastos.trinity.samples");
 
-            sleep(100);//wait for start
-
             await getLastListPromise();
             await getRunningListPromise();
             running_list_start = running_list;
@@ -174,8 +230,6 @@ describe("appManager", function() {
             await closeById("org.elastos.trinity.samples");
             expect(isSuccess).toBe(true);
 
-            sleep(100); //wait for close
-
             await getLastListPromise();
             await getRunningListPromise();
             expect(isSuccess).toBe(true);
@@ -187,25 +241,26 @@ describe("appManager", function() {
                 await closeById(running_list[i]);
             }
 
-            sleep(100); //wait for close
-
             await getLastListPromise();
             await getRunningListPromise();
             expect(running_list.length).toBe(0);
             expect(last_list.length).toBe(0);
         }, 10000);
 
-//        it("launcher", async function() {
-//            await startDappById("org.elastos.trinity.samples");
-//            expect(app_list.length).toBeGreaterThan(4);
-//            expect(isSuccess).toBe(true);
-//        }, 1000);
-//
-//        it("uninstall dapp", async function() {
-//        //    expect(running_list.length).toBeGreaterThanOrEqual(0);
-//            expect(isSuccess).toBe(true);
-//        }, 1000);
-//
+        it("launcher", async function() {
+            await launcher();
+            await getLastListPromise();
+            await getRunningListPromise();
+            expect(isSuccess).toBe(true);
+            expect(running_list_start.length).toBe(running_list.length);
+            expect(last_list_start.length).toBe(last_list.length);
+        });
+
+        it("uninstall buildin dapp", async function() {
+            await unInstall("org.elastos.trinity.samples", true);
+            expect(isSuccess).toBe(true);
+        }, 1000);
+
         it("run all buildin dapp", async function() {
             var dappCount = 0;
             if (typeof appInfos == 'object') {
@@ -216,22 +271,37 @@ describe("appManager", function() {
                 }
             }
 
-            sleep(100); //wait for start
-
             await getRunningListPromise();
             expect(running_list.length).toBe(dappCount);
         }, 10000);
 
     })
 
-//    describe("test epk", function() {
-//        it("install epk", async function() {
-//            expect(app_list.length).toBeGreaterThan(4);
+    describe("test epk", function() {
+        var app_list_start;
+        beforeEach(async function() {
+            await getAppListPromise();
+            app_list_start = app_list;
+
+            var index=app_list_start.indexOf("org.elastos.trinity.demo2");
+            if (index != -1) {
+                await unInstall("org.elastos.trinity.demo2", false);
+
+                await getAppListPromise();
+                index=app_list.indexOf("org.elastos.trinity.demo2");
+                expect(index).toBe(-1);
+            }
+        });
+
+        it("install epk with file", async function() {
+            await install("file:///storage/emulated/0/demo2.zip");
+
+            await getAppListPromise();
+            var index=app_list_start.indexOf("org.elastos.trinity.demo2");
+            expect(index).toBeGreaterThanOrEqual(0);
+        }, 1000);
+
+//        it("install epk with content", async function() {
 //        }, 1000);
-//
-//        it("uninstall", async function() {
-//        //    expect(running_list.length).toBeGreaterThanOrEqual(0);
-//            expect(running_list.length).toBe(0);
-//        }, 1000);
-//    })
+    })
 });

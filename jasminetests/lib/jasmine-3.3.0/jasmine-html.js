@@ -218,6 +218,7 @@ jasmineRequire.HtmlReporter = function(j$) {
       }
 
       alert.appendChild(createDom('span', {className: statusBarClassName}, statusBarMessage, seedBar));
+      console.log("TestResult:" + statusBarMessage);
 
       var errorBarClassName = 'jasmine-bar jasmine-errored';
       var afterAllMessagePrefix = 'AfterAll ';
