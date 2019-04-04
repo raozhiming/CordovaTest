@@ -1,0 +1,18 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "org.elastos.trinity.Flashlight"
+    },
+    "cordova-plugin-flashlight": {
+      "PACKAGE_NAME": "org.elastos.trinity.Flashlight"
+    }
+  },
+  "dependent_plugins": {}
+}
