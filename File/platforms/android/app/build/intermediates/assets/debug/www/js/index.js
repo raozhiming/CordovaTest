@@ -85,22 +85,28 @@ function readFile(fileEntry) {
 function writeFile(fileEntry, content, count) {
     fileEntry.createWriter(function(fileWriter) {
         fileWriter.onwriteend = function(e) {
-            showInfo("Dir:" + cordova.file.dataDirectory + '<br>Write completed.');
+            showInfo('Write completed.', true);
         };
 
         fileWriter.onerror = function(e) {
-            showInfo("Dir:" + cordova.file.dataDirectory + '<br>Write failed: ' + e.toString());
+            showInfo('Write failed: ' + e.toString());
         };
 
         fileWriter.seek(fileWriter.length);
-        var dataObj = new Blob([cordova.file.dataDirectory], { type: 'text/plain' });
+        var dataObj = new Blob([content], { type: 'text/plain' });
         fileWriter.write(dataObj);
     }, errorHandler);
 }
 
-function createDir() {
+function createDirs() {
     window.requestFileSystem(window.TEMPORARY, 1024*1024, function(fs) {
         fs.root.getDirectory('MyPictures', {create: true}, function(dirEntry) {
+            showInfo("Create dir ok");
+        }, errorHandler);
+    }, errorHandler);
+
+    window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fs) {
+        fs.getDirectory("MyPictures", {create: true}, function(dirEntry) {
             showInfo("Create dir ok");
         }, errorHandler);
     }, errorHandler);
@@ -126,35 +132,60 @@ function removeLocalFile(filename) {
     }, errorHandler);
 }
 
+function listLocalDir() {
+    showInfo('All Files:<br>');
 
-function listDir(fileEntry) {
+    window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fs) {
+        showInfo('open file system: ' + cordova.file.dataDirectory + '<br><br>', true);
+        var fileReader = fs.createReader();
+        fileReader.readEntries(function(entries) {
+            for (var i = 0, entry; entry = entries[i]; ++i) {
+                showInfo(entry.toURL() + '<br>', true);
+            }
+        });
+    },
+    errorHandler);
+}
 
+function listDir() {
+    showInfo('All Files:<br>');
+
+    window.requestFileSystem(LocalFileSystem.TEMPORARY, 1024*1024, function (fs) {
+        showInfo('open file system: ' + fs.name + '<br><br>', true);
+        var fileReader = fs.root.createReader();
+        fileReader.readEntries(function(entries) {
+            for (var i = 0, entry; entry = entries[i]; ++i) {
+                showInfo(entry.toURL() + '<br>', true);
+            }
+        });
+    },
+    errorHandler);
 }
 
 
 function openLocalFileSystemAndWrite(type, filename){
     window.resolveLocalFileSystemURL(type, function (fs) {
-        showInfo('open file system: ' + fs.name + '<br>');
+        showInfo('open file system: ' + type + '<br>');
         fs.getFile(filename, { create: true }, function (fileEntry) {
-              writeFile(fileEntry, "", 1);
+              writeFile(fileEntry, "LocalFileSystem write Test<br>", 1);
         }, errorHandler);
     });
 }
 
 function openLocalFileSystemAndRead(type, filename){
     window.resolveLocalFileSystemURL(type, function (fs) {
-        showInfo('open file system: ' + fs.name + '<br>');
+        showInfo('open file system: ' + type + '<br>');
         fs.getFile(filename, { create: false }, readFile, errorHandler);
     });
 }
 
 
 function openFileSystemAndWrite(type, filename){
-    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0,
+    window.requestFileSystem(LocalFileSystem.TEMPORARY, 1024*1024,
         function (fs) {
-            showInfo('open file system: ' + fs.name);
+            showInfo('open file system: ' + fs.name + '<br>');
             fs.root.getFile(filename, { create: true, exclusive: false }, function (fileEntry) {
-                writeFile(fileEntry, "", 1);
+                writeFile(fileEntry, "FileSystem Write Test<br>", 1);
             }, errorHandler);
         },
         errorHandler);
@@ -162,7 +193,7 @@ function openFileSystemAndWrite(type, filename){
 
 function openFileSystemAndRead(){
     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, function (fs) {
-        showInfo('open file system: ' + fs.name);
+        showInfo('open file system: ' + fs.name + '<br>');
         fs.root.getFile("log.txt", { create: false, exclusive: true }, readFile, errorHandler);
     }, errorHandler);
 }
@@ -201,6 +232,9 @@ var app = {
         document.getElementById("write").addEventListener("click", createAndWriteFile2);
         document.getElementById("read").addEventListener("click", openFileSystemAndRead);
         document.getElementById("delete").addEventListener("click", removeFile);
+        document.getElementById("createdirs").addEventListener("click", createDirs);
+        document.getElementById("listlocal").addEventListener("click", listLocalDir);
+        document.getElementById("list").addEventListener("click", listDir);
         document.getElementById("info").addEventListener("click", showVariable);
         document.getElementById("PERSISTENT").addEventListener("click", persistentInfo);
         document.getElementById("Temporary").addEventListener("click", temporaryInfo);
@@ -212,7 +246,6 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        console.log('-----------------onDeviceReady-------------');
     },
 
     // Update DOM on a Received Event
