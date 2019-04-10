@@ -12,6 +12,9 @@
     <feature name="Media">
         <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
     </feature>
+    <feature name="RTSPStream">
+        <param name="android-package" value="com.webmons.disono.videostream.RTSPStream" />
+    </feature>
     <name>MediaTest</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

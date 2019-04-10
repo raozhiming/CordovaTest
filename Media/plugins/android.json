@@ -12,6 +12,9 @@
     },
     "cordova-plugin-media": {
       "PACKAGE_NAME": "org.elastos.samples"
+    },
+    "cordova-rtsp": {
+      "PACKAGE_NAME": "org.elastos.samples"
     }
   },
   "dependent_plugins": {

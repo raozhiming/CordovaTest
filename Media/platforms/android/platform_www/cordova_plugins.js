@@ -188,6 +188,14 @@ module.exports = [
     "clobbers": [
       "window.Media"
     ]
+  },
+  {
+    "id": "cordova-rtsp.RTSPStream",
+    "file": "plugins/cordova-rtsp/www/rtspVideo.js",
+    "pluginId": "cordova-rtsp",
+    "clobbers": [
+      "window.rtspVideo"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -195,7 +203,8 @@ module.exports.metadata =
 {
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-file": "6.0.1",
-  "cordova-plugin-media": "5.0.2"
+  "cordova-plugin-media": "5.0.2",
+  "cordova-rtsp": "0.1.6"
 };
 // BOTTOM OF METADATA
 });

@@ -1,0 +1,62 @@
+{
+  "_from": "cordova-rtsp",
+  "_id": "cordova-rtsp@0.1.6",
+  "_inBundle": false,
+  "_integrity": "sha1-z+2qs0ZnsToNf58V3X46weCg+NU=",
+  "_location": "/cordova-rtsp",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-rtsp",
+    "name": "cordova-rtsp",
+    "escapedName": "cordova-rtsp",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/cordova-rtsp/download/cordova-rtsp-0.1.6.tgz",
+  "_shasum": "cfedaab34667b13a0d7f9f15dd7e3ac1e0a0f8d5",
+  "_spec": "cordova-rtsp",
+  "_where": "/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media",
+  "author": {
+    "name": "Archie Disono"
+  },
+  "bugs": {
+    "url": "https://github.com/disono/cordova-rtsp"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-rtsp",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cross-platform plugin for Cordova / PhoneGap to to easily play RTSP. Available for Android ONLY.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/disono/cordova-rtsp/blob/master/README.md",
+  "keywords": [
+    "cordova",
+    "phonegap",
+    "rtsp",
+    "video-player",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-rtsp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/disono/cordova-rtsp.git"
+  },
+  "version": "0.1.6"
+}

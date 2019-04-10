@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Dec 12 12:00:12 CST 2018
+#Wed Mar 27 17:23:29 CST 2019
 5.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 22.path=classes.dex
 32.set=ASSET
@@ -11,7 +11,7 @@
 21.set=ASSET
 26.path=www/cordova-js-src/plugin/android/app.js
 6.baseType=DIRECTORY
-36.path=www/js/index.js
+36.path=www/plugins/cordova-plugin-file/www/LocalFileSystem.js
 10.set=ASSET
 28.set=ASSET
 22.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
@@ -21,6 +21,7 @@
 26.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 36.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 1.set=ASSET
+37.baseType=DIRECTORY
 28.baseType=DIRECTORY
 16.path=www/cordova-js-src/exec.js
 19.baseType=DIRECTORY
@@ -40,11 +41,12 @@
 6.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 4.set=ASSET
 23.path=www/plugins/cordova-plugin-file/www/FileError.js
-33.path=www/plugins/cordova-plugin-media/www/MediaError.js
+33.path=www/plugins/cordova-rtsp/www/rtspVideo.js
 17.path=www/cordova.js
 31.set=ASSET
 20.baseType=DIRECTORY
 27.path=www/plugins/cordova-plugin-file/www/fileSystemPaths.js
+37.path=www/js/index.js
 20.set=ASSET
 23.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 9.baseType=DIRECTORY
@@ -52,9 +54,10 @@
 13.path=www/plugins/cordova-plugin-media/www/Media.js
 17.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 27.set=ASSET
-count=37
+count=38
 27.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 16.set=ASSET
+37.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 11.baseType=DIRECTORY
 21.baseType=DIRECTORY
 30.baseType=DIRECTORY
@@ -76,7 +79,7 @@ count=37
 7.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 19.set=ASSET
 24.path=www/plugins/cordova-plugin-file/www/android/FileSystem.js
-34.path=www/img/logo.png
+34.path=www/plugins/cordova-plugin-media/www/MediaError.js
 3.set=ASSET
 18.path=www/index.html
 20.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
@@ -90,6 +93,7 @@ count=37
 34.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 1.baseType=DIRECTORY
 14.path=www/cordova-js-src/android/nativeapiprovider.js
+37.set=ASSET
 18.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 28.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
 10.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug
@@ -118,7 +122,7 @@ count=37
 29.set=ASSET
 3.baseType=DIRECTORY
 25.path=www/cordova-js-src/android/promptbasednativeapi.js
-35.path=www/plugins/cordova-plugin-file/www/LocalFileSystem.js
+35.path=www/img/logo.png
 18.set=ASSET
 19.path=www/plugins/cordova-plugin-file/www/FileUploadOptions.js
 21.base=/home/kortide/raozhiming/elastos/Trinity/dapps/CordovaTest/Media/platforms/android/app/build/intermediates/assets/debug

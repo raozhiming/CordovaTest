@@ -150,7 +150,7 @@ function listLocalDir() {
 function listDir() {
     showInfo('All Files:<br>');
 
-    window.requestFileSystem(LocalFileSystem.TEMPORARY, 1024*1024, function (fs) {
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 1024*1024, function (fs) {
         showInfo('open file system: ' + fs.name + '<br><br>', true);
         var fileReader = fs.root.createReader();
         fileReader.readEntries(function(entries) {

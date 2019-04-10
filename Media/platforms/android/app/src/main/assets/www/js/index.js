@@ -24,10 +24,15 @@ var myMedia = null;
 var volumeValue = 0.5;
 
 function playAudio() {
-    var src = "/android_asset/www/audio/background.mp3";
+    // var src = "/android_asset/www/audio/background.mp3";
+    // var src = "rtsp://192.168.31.111:8554/test";
 
-    if(myMedia === null) {
-        myMedia = new Media(src, onSuccess, onError);
+    // rtspVideo.play('rtsp://192.168.31.111:8554/test', onSuccess, onError);
+    window.open('rtsp://brekete.myurl.org:1935/radio/liveradio', '_system')
+
+
+    // if(myMedia === null) {
+    //     myMedia = new Media(src, onSuccess, onError);
 
         function onSuccess() {
             console.log("playAudio Success");
@@ -36,39 +41,39 @@ function playAudio() {
         function onError(error) {
             console.log("playAudio Error: " + error.code);
         }
-    }
+    // }
 
-    var counter = 0;
-    var timerDur = setInterval(function() {
-        counter = counter + 100;
-        if (counter > 2000) {
-            clearInterval(timerDur);
-        }
-        var dur = myMedia.getDuration();
-        if (dur > 0) {
-            clearInterval(timerDur);
-            durationInfo.innerHTML = (dur) + " sec";
-        }
-    }, 100);
+    // var counter = 0;
+    // var timerDur = setInterval(function() {
+    //     counter = counter + 100;
+    //     if (counter > 2000) {
+    //         clearInterval(timerDur);
+    //     }
+    //     var dur = myMedia.getDuration();
+    //     if (dur > 0) {
+    //         clearInterval(timerDur);
+    //         durationInfo.innerHTML = (dur) + " sec";
+    //     }
+    // }, 100);
 
-    var mediaTimer = setInterval(function () {
-        // get media position
-        myMedia.getCurrentPosition(
-            // success callback
-            function (position) {
-                if (position > -1) {
-                    console.log((position) + " sec");
-                    positionInfo.innerHTML = position + " sec";
-                }
-            },
-            // error callback
-            function (e) {
-                console.log("Error getting pos=" + e);
-            }
-        );
-    }, 1000);
+    // var mediaTimer = setInterval(function () {
+    //     // get media position
+    //     myMedia.getCurrentPosition(
+    //         // success callback
+    //         function (position) {
+    //             if (position > -1) {
+    //                 console.log((position) + " sec");
+    //                 positionInfo.innerHTML = position + " sec";
+    //             }
+    //         },
+    //         // error callback
+    //         function (e) {
+    //             console.log("Error getting pos=" + e);
+    //         }
+    //     );
+    // }, 1000);
 
-    myMedia.play();
+    // myMedia.play();
 }
 
 function pauseAudio() {

@@ -112,7 +112,7 @@ function createDirs() {
     }, errorHandler);
 }
 
-function removeFile(filename) {
+function removeFile() {
     window.requestFileSystem(window.TEMPORARY, 1024*1024, function(fs) {
         fs.root.getFile("log.txt", {create: false}, function(fileEntry) {
             fileEntry.remove(function() {
@@ -122,7 +122,7 @@ function removeFile(filename) {
     }, errorHandler);
 }
 
-function removeLocalFile(filename) {
+function removeLocalFile() {
     window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fs) {
         fs.getFile("log.txt", {create: false}, function(fileEntry) {
             fileEntry.remove(function() {
@@ -150,7 +150,7 @@ function listLocalDir() {
 function listDir() {
     showInfo('All Files:<br>');
 
-    window.requestFileSystem(LocalFileSystem.TEMPORARY, 1024*1024, function (fs) {
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 1024*1024, function (fs) {
         showInfo('open file system: ' + fs.name + '<br><br>', true);
         var fileReader = fs.root.createReader();
         fileReader.readEntries(function(entries) {

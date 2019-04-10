@@ -60,11 +60,6 @@ var app = {
         document.getElementById('btnVibrateInterval').addEventListener('click', this.vibrateInterval);
         document.getElementById('btnVibrateOff').addEventListener('click', this.vibrateOff);
 
-        // navigator.splashscreen.show();
-        setTimeout(function() {
-            navigator.splashscreen.hide();
-        }, 3000)
-
         console.log('Received Event: ' + id);
     }
 };
