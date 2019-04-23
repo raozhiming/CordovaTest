@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div data-role="header" role="banner" class="ui-header ui-bar-inherit" data-position="fixed">
+            <h1 class="ui-title" role="heading" aria-level="1">QRScanner</h1>
+            <a href="index.html" class="ui-btn-left ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button"
+               role="button"></a>
+        </div>
+        <div class="app">
+            <div>
+                <input type="button" value="Prepare" id="btnPrepare">
+                <input type="button" value="Start Scan" id="btnScan">
+                <hr />
+                <input type="button" value="Show" id="btnShow">
+                <input type="button" value="Hide" id="btnHide">
+                <input type="button" value="Cancel Scan" id="btnCancel">
+                <input type="button" value="Destroy" id="btnDestroy">
+                <hr />
+                <input type="button" value="EnableLight" id="btnEnableLight">
+                <input type="button" value="DisableLight" id="btnDisableLight">
+                <input type="button" value="Front" id="btnFront">
+                <input type="button" value="Back" id="btnBack">
+                <input type="button" value="Pause" id="btnPause">
+                <input type="button" value="Resume" id="btnResume">
+                <input type="button" value="Setting" id="btnSetting">
+            </div>
+        </div>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
